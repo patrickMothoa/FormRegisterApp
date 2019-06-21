@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+  <h1 style="background-color:blue;">
+     RegisterApp{{ title }}.
+  </h1>
+  <img width="300" alt="Angular Logo" src="assets\reg.jpg">
+
+  <form class="example-form" [formGroup] = "ValForm">
+    
+      Name : <mat-form-field>
+        <input matInput placeholder="fana" formControlName = "username" [(ngModel)]= "username" required>
+         </mat-form-field><br>
+   
+      Surname :<mat-form-field>
+         <input matInput placeholder="mothoa" formControlName ="surname" [(ngModel)]= "surname" required>
+       </mat-form-field><br>
+         
+      Age :<mat-form-field hintLabel="Max 3 characters">
+             <input matInput #input maxlength="3" placeholder="20"  formControlName = "age" [(ngModel)]= "age" required>
+        </mat-form-field><br>
+       <div class="example-container">
+     Email : <mat-form-field>
+                 <input matInput placeholder="Enter your email"  formControlName = "email" [(ngModel)]= "email" required>
+               </mat-form-field>
+             </div><br>
+   
+     Phone Number:<mat-form-field hintLabel="Max 10 characters">
+         <input matInput #input maxlength="10" placeholder="0854525542"  formControlName = "number" [(ngModel)]= "number" required>
+    </mat-form-field><br>
+      <button (click) = "addUser()" style="background-color: cadetblue;"  [disabled]="!ValForm.valid" mat-raised-button color="primary"> register </button>
+     </form>
+   
+      <mat-card  style="background-color: grey">
+          <mat-card-title> User Information. </mat-card-title>
+      </mat-card>
+
+      <mat-list role="list" *ngFor = "let user of Users">
+          <mat-list-item role="listitem">Name : {{user.username}}</mat-list-item>
+          <mat-list-item role="listitem">Surname : {{user.surname}}</mat-list-item>
+          <mat-list-item role="listitem">Age : {{user.age}} </mat-list-item>
+          <mat-list-item role="listitem">Email : {{user.email}}</mat-list-item>
+          <mat-list-item role="listitem">Number : {{user.number}}</mat-list-item>
+        </mat-list>
+
+</div>
+
+
